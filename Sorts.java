@@ -14,12 +14,17 @@ public class Sorts {
       ary[i] = store;
     }
   }
-  public static int[] toIntArray(String[] args){
-    int[] result = new int[args.length];
+  public static String toStringIntArray(String[] args){
+    int[] convert = new int[args.length];
     for (int i = 0; i < args.length; i++){
-      result[i] = Integer.parseInt(args[i]);
+      convert[i] = Integer.parseInt(args[i]);
     }
-    return result;
+    selectionSort(convert);
+    String result = "[";
+    for (int i = 0; i < args.length; i++){
+      result += " " + convert[i];
+    }
+    return result + "]";
   }
   public static void main(String[] args){
       int[] list = new int[]{42, 11, 32, 99};
@@ -29,5 +34,6 @@ public class Sorts {
         result += " " + list[i];
       }
       System.out.println(result);
+      System.out.println(toStringIntArray(args));
     }
   }
