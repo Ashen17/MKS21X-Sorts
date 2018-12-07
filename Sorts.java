@@ -1,6 +1,6 @@
 public class Sorts {
   public static void selectionSort(int [] ary){
-    int store, insert;
+    int store;
     for (int i = 0; i < ary.length; i++){
       store  = ary[i];
       for (int j = i + 1; j < ary.length; j++){
