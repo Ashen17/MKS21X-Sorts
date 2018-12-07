@@ -2,13 +2,12 @@ public class Sorts {
   public static void selectionSort(int [] ary){
     int store, insert;
     for (int i = 0; i < ary.length; i++){
-      store = ary[i];
-      insert = ary[i];
-      for (int j = i; j < ary.length; j++){
+      store  = ary[i];
+      for (int j = i + 1; j < ary.length; j++){
         if (ary[j] < store){
-          store = ary[j];
-          ary[j] = insert;
-          insert = store;
+        store = ary[j];
+        ary[j] = ary[i];
+        ary[i] = store;
         }
       }
       ary[i] = store;
@@ -26,8 +25,14 @@ public class Sorts {
     }
     return result + "]";
   }
+  public static void bubbleSort(){
+
+  }
   public static void main(String[] args){
-      int[] list = new int[]{42, 11, 32, 99};
+      int[] list = new int[4];
+      for (int i = 0; i < list.length; i++ ){
+        list[i] = Math.randInt() % 1000;
+      }
       selectionSort(list);
       String result = "[";
       for (int i = 0; i < list.length; i++){
