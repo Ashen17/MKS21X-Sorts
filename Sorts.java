@@ -1,3 +1,5 @@
+import java.lang.Math;
+
 public class Sorts {
   public static void selectionSort(int [] ary){
     int store;
@@ -18,7 +20,8 @@ public class Sorts {
     for (int i = 0; i < args.length; i++){
       convert[i] = Integer.parseInt(args[i]);
     }
-    selectionSort(convert);
+    //selectionSort(convert);
+    bubbleSort(convert);
     String result = "[";
     for (int i = 0; i < args.length; i++){
       result += " " + convert[i];
@@ -27,27 +30,28 @@ public class Sorts {
   }
   public static void bubbleSort(int[] args){
     int store;
-    boolean switch = true;
-    while (switch) {
-      switch = false;
+    boolean swap = true;
+    while (swap) {
+      swap = false;
       for(int i = 1; i < args.length; i++){
         if (args[i-1] > args[i]){
-          store = args[i-1]
+          store = args[i-1];
           args[i-1] = args[i];
           args[i] = store;
-          switch = true;
+          swap = true;
         }
       }
       for(int i = args.length - 2; i >= 0; i--){
-        if (args[i-1] > args[i]){
-          store = args[i-1]
-          args[i-1] = args[i];
-          args[i] = store;
-          switch = true;
-      }
+        if (args[i] > args[i+1]){
+          store = args[i];
+          args[i] = args[i+1];
+          args[i+1] = store;
+        }
     }
   }
+}
   public static void main(String[] args){
+    /*
       int[] list = new int[4];
       for (int i = 0; i < list.length; i++ ){
         list[i] = Math.randInt() % 1000;
@@ -58,6 +62,7 @@ public class Sorts {
         result += " " + list[i];
       }
       System.out.println(result);
+      */
       System.out.println(toStringIntArray(args));
     }
   }
