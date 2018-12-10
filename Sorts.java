@@ -50,6 +50,17 @@ public class Sorts {
     }
   }
 }
+  public static void insertSort(int[] args){
+    int store;
+    for(int i = 1; i < args.length;i++){
+      boolean direction = true;
+      while (direction){
+      if (args[i] < args[i/2]){
+
+      }
+    }
+  }
+}
   public static void main(String[] args){
     /*
       int[] list = new int[4];
