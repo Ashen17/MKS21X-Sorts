@@ -25,8 +25,27 @@ public class Sorts {
     }
     return result + "]";
   }
-  public static void bubbleSort(){
-
+  public static void bubbleSort(int[] args){
+    int store;
+    boolean switch = true;
+    while (switch) {
+      switch = false;
+      for(int i = 1; i < args.length; i++){
+        if (args[i-1] > args[i]){
+          store = args[i-1]
+          args[i-1] = args[i];
+          args[i] = store;
+          switch = true;
+        }
+      }
+      for(int i = args.length - 2; i >= 0; i--){
+        if (args[i-1] > args[i]){
+          store = args[i-1]
+          args[i-1] = args[i];
+          args[i] = store;
+          switch = true;
+      }
+    }
   }
   public static void main(String[] args){
       int[] list = new int[4];
