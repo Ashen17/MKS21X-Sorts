@@ -59,11 +59,12 @@ public class Sorts {
 }
   public static void insertSort(int[] args){
     for(int i = 1; i < args.length;i++){
-      int store = i/2;
+      int store = (i)/2;
       System.out.println("NEXT");
-      for(int j = i/2, t = (i+2)/3; t != 0; j/=2, t/=3, System.out.println(store)){
+      for(int j = i/2, t = (i+2)/3; t != 0;j/=2, store += j, t/=3, System.out.println(store)){
         if (args[i] > args[store]){
-          j = Math.abs(j);
+          j = Math.abs(j) + 2;
+
         }
         else {
           j = Math.abs(j) * -1;
