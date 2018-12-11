@@ -21,12 +21,19 @@ public class Sorts {
       convert[i] = Integer.parseInt(args[i]);
     }
     //selectionSort(convert);
-    bubbleSort(convert);
+    //bubbleSort(convert);
     String result = "[";
     for (int i = 0; i < args.length; i++){
       result += " " + convert[i];
     }
     return result + "]";
+  }
+  public static int[] toIntArray(String[] args){
+    int[] convert = new int[args.length];
+    for (int i = 0; i < args.length; i++){
+      convert[i] = Integer.parseInt(args[i]);
+    }
+    return convert;
   }
   public static void bubbleSort(int[] args){
     int store;
@@ -51,16 +58,21 @@ public class Sorts {
   }
 }
   public static void insertSort(int[] args){
-    int store;
     for(int i = 1; i < args.length;i++){
-      boolean direction = true;
-      while (direction){
-      if (args[i] < args[i/2]){
-
+      int store = i/2;
+      System.out.println("NEXT");
+      for(int j = i/2, t = (i+2)/3; t != 0; j/=2, t/=3, System.out.println(store)){
+        if (args[i] > args[store]){
+          j = Math.abs(j);
+        }
+        else {
+          j = Math.abs(j) * -1;
+        }
       }
     }
   }
-}
+
+
   public static void main(String[] args){
     /*
       int[] list = new int[4];
@@ -74,6 +86,6 @@ public class Sorts {
       }
       System.out.println(result);
       */
-      System.out.println(toStringIntArray(args));
+      insertSort(toIntArray(args));
     }
   }
