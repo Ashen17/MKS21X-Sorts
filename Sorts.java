@@ -35,6 +35,7 @@ public class Sorts {
     }
     return convert;
   }
+
   public static void bubbleSort(int[] args){
     int store;
     boolean swap = true;
@@ -61,7 +62,7 @@ public class Sorts {
     for(int i = 1; i < args.length;i++){
       int store = (i)/2;
       System.out.println("NEXT");
-      for(int j = i/2; j != 0; j/=2, store += j,System.out.println(store)){
+      for(int j = i/2; j != 0; store += j, j/=2){
         if (args[i] > args[store]){
           j = Math.abs(j);
 
