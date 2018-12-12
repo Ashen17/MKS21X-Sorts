@@ -15,9 +15,17 @@ public class Sorts {
       ary[i] = store;
     }
   }
+  public static int log2(int n){//logbase2 rounded down
+    if (n != 0){
+      return 1 + log2(n/2);
+    }
+    else {
+      return -1;
+    }
+  }
   public static String toStringIntArray(String[] args, String sort){
     int[] convert = new int[args.length];
-    for (int i = 1; i < args.length; i++){
+    for (int i = 0; i < args.length; i++){
       convert[i] = Integer.parseInt(args[i]);
     }
     if (sort.equals("insert")){insertSort(convert);}
@@ -29,9 +37,16 @@ public class Sorts {
     }
     return result + "]";
   }
+  public static String toStringArray(int[] args){
+    String result = "[";
+    for (int i = 0; i < args.length; i++){
+      result += " " + args[i];
+    }
+    return result + "]";
+  }
   public static int[] toIntArray(String[] args){
     int[] convert = new int[args.length];
-    for (int i = 0; i < args.length; i++){
+    for (int i = 1; i < args.length; i++){
       convert[i] = Integer.parseInt(args[i]);
     }
     return convert;
@@ -62,18 +77,25 @@ public class Sorts {
   public static void insertSort(int[] args){
     for(int i = 1; i < args.length;i++){
       int store = (i)/2;
-      for(int j = i/2; j != 0 & args[store]!=args[i]; store += j, j/=2){
-        if (args[i] > args[store]){j = Math.abs(j);}
+
+      for(int j = i/2; j != 0 & args[store]!=args[i]; j/=2, store += j){
+        if (args[i] > args[store]){
+          j = Math.abs(j);
+          if (store % 2 == 0){store++;}
+        }
         else {j = Math.abs(j) * -1;}
       }
       if (args[i] > args[store]){
         store ++;
       }
+      else{store--;}
       int save = args[i];
-      for(int j = i; j != store; j--){
+      for(int j = i; j > store; j--){
         args[j] = args[j-1];
       }
+
       args[store] = save;
+      System.out.println(toStringArray(args));
     }
   }
 
@@ -91,8 +113,23 @@ public class Sorts {
       }
       System.out.println(result);
       */
-      int[] list;
-      list = (toIntArray(args));
-      System.out.println(list);
+      /*
+      int[] randish = new int[Integer.parseInt(args[0])];
+      for(int i = 0 ; i < randish.length; i++){
+        randish[i] =(int)(Math.random()*10000);
+      }
+      if(args[1].equals("selection")){
+        Sorts.selectionSort(randish);
+      }
+      if(args[1].equals("bubble")){
+        Sorts.bubbleSort(randish);
+      }
+      if(args[1].equals("insert")){
+        Sorts.insertSort(randish);
+        */
+      int[] data = new int[]{3,7,2,1,0};
+      insertSort(data);
+      System.out.println(toStringArray(data));
+      //}
     }
   }
