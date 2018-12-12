@@ -61,15 +61,20 @@ public class Sorts {
     for(int i = 1; i < args.length;i++){
       int store = (i)/2;
       System.out.println("NEXT");
-      for(int j = i/2, t = (i+2)/3; t != 0;j/=2, store += j, t/=3, System.out.println(store)){
+      for(int j = i/2; j != 0; j/=2, store += j,System.out.println(store)){
         if (args[i] > args[store]){
-          j = Math.abs(j) + 2;
+          j = Math.abs(j);
 
         }
         else {
           j = Math.abs(j) * -1;
         }
       }
+      if (args[i] > args[store]){
+        store ++;
+      }
+      System.out.println(store);
+
     }
   }
 
