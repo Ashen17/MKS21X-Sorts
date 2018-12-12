@@ -15,13 +15,14 @@ public class Sorts {
       ary[i] = store;
     }
   }
-  public static String toStringIntArray(String[] args){
+  public static String toStringIntArray(String[] args, String sort){
     int[] convert = new int[args.length];
-    for (int i = 0; i < args.length; i++){
+    for (int i = 1; i < args.length; i++){
       convert[i] = Integer.parseInt(args[i]);
     }
-    //selectionSort(convert);
-    //bubbleSort(convert);
+    if (sort.equals("insert")){insertSort(convert);}
+    if (sort.equals("select")){selectionSort(convert);}
+    if (sort.equals("bubble")){bubbleSort(convert);}
     String result = "[";
     for (int i = 0; i < args.length; i++){
       result += " " + convert[i];
@@ -61,21 +62,18 @@ public class Sorts {
   public static void insertSort(int[] args){
     for(int i = 1; i < args.length;i++){
       int store = (i)/2;
-      System.out.println("NEXT");
-      for(int j = i/2; j != 0; store += j, j/=2){
-        if (args[i] > args[store]){
-          j = Math.abs(j);
-
-        }
-        else {
-          j = Math.abs(j) * -1;
-        }
+      for(int j = i/2; j != 0 & args[store]!=args[i]; store += j, j/=2){
+        if (args[i] > args[store]){j = Math.abs(j);}
+        else {j = Math.abs(j) * -1;}
       }
       if (args[i] > args[store]){
         store ++;
       }
-      System.out.println(store);
-
+      int save = args[i];
+      for(int j = i; j != store; j--){
+        args[j] = args[j-1];
+      }
+      args[store] = save;
     }
   }
 
@@ -93,6 +91,8 @@ public class Sorts {
       }
       System.out.println(result);
       */
-      insertSort(toIntArray(args));
+      int[] list;
+      list = (toIntArray(args));
+      System.out.println(list);
     }
   }
