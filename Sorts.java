@@ -76,8 +76,13 @@ public class Sorts {
 }
   public static void insertSort(int[] args){
     for(int i = 1; i < args.length;i++){
-      int store = (i)/2;
-
+      int store = args[i];
+      int j = i;
+      for(;args[j-1] > store && j > 0; j-- ){
+        args[j] = args[j-1];
+      }
+      /*
+      int store = (i)/2;1
       for(int j = i/2; j != 0 & args[store]!=args[i]; j/=2, store += j){
         if (args[i] > args[store]){
           j = Math.abs(j);
@@ -88,14 +93,13 @@ public class Sorts {
       if (args[i] > args[store]){
         store ++;
       }
-      else{store--;}
+      else if (args[i] < args[store - 1]){store--;}
       int save = args[i];
       for(int j = i; j > store; j--){
         args[j] = args[j-1];
-      }
+      }*/
 
-      args[store] = save;
-      System.out.println(toStringArray(args));
+      args[j] = store;
     }
   }
 
