@@ -28,7 +28,7 @@ public class Sorts {
     for (int i = 0; i < args.length; i++){
       convert[i] = Integer.parseInt(args[i]);
     }
-    if (sort.equals("insert")){insertSort(convert);}
+    if (sort.equals("insert")){insertionSort(convert);}
     if (sort.equals("select")){selectionSort(convert);}
     if (sort.equals("bubble")){bubbleSort(convert);}
     String result = "[";
@@ -74,7 +74,7 @@ public class Sorts {
     }
   }
 }
-  public static void insertSort(int[] args){
+  public static void insertionSort(int[] args){
     for(int i = 1; i < args.length;i++){
       int store = args[i];
       int j = i;
@@ -129,10 +129,10 @@ public class Sorts {
         Sorts.bubbleSort(randish);
       }
       if(args[1].equals("insert")){
-        Sorts.insertSort(randish);
+        Sorts.insertionSort(randish);
         */
       int[] data = new int[]{3,7,2,1,0};
-      insertSort(data);
+      insertionSort(data);
       System.out.println(toStringArray(data));
       //}
     }
