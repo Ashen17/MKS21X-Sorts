@@ -78,7 +78,7 @@ public class Sorts {
     for(int i = 1; i < args.length;i++){
       int store = args[i];
       int j = i;
-      for(;args[j-1] > store && j > 0; j-- ){
+      for(;j > 0 && args[j-1] > store; j-- ){
         args[j] = args[j-1];
       }
       /*
